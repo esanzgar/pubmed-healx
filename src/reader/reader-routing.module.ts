@@ -3,7 +3,10 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { ReadingListComponent } from "./containers/reading-list/reading-list.component";
 
-const routes: Routes = [{ path: "", component: ReadingListComponent }];
+const routes: Routes = [
+  { path: "", component: ReadingListComponent },
+  { path: ":id", component: ReadingListComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

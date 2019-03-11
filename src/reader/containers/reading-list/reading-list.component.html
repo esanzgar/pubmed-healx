@@ -1,3 +1,17 @@
-<p>
-  reading-list works!
-</p>
+<mat-card class="reading-card">
+  <mat-list *ngIf="bookmarks.length; else noBookmarks">
+    <h2 mat-subheader>Bookmarks</h2>
+    <mat-list-item
+      *ngFor="let bookmark of bookmarks; last as last; index as index"
+    >
+      <fa-icon mat-list-icon [icon]="faFile">file</fa-icon>
+      <h4 mat-line>{{ bookmark | json }}</h4>
+      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+
+  <ng-template #noBookmarks>
+    <!--fa-icon mat-list-icon [icon]="faFile">file</fa-icon-->
+    Sorry, there are no bookmarks.
+    <ng-template> <mat-card></mat-card></ng-template></ng-template
+></mat-card>
