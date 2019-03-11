@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  epmcUrl: "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+  ncbiUrl: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
   production: false
 };
 
