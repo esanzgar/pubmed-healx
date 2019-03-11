@@ -11,8 +11,6 @@ A live and editable version of the app can be accessed
 
 To develop locally run the development server following one of these recipes:
 
-1. With yarn:
-
 ```
 yarn install [--frozen-lockfile]
 yarn start
