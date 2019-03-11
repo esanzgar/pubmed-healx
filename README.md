@@ -1,12 +1,11 @@
-[![CircleCI](https://circleci.com/gh/esanzgar/workout.svg?style=svg)](https://circleci.com/gh/esanzgar/workout)
+[![CircleCI](https://circleci.com/gh/esanzgar/pubmed-healx.svg?style=svg)](https://circleci.com/gh/esanzgar/pubmed-healx)
 
-# EBI workspace
+# Scientific publication reader
 
-[Description]
+App to search and bookmark scientific publications.
 
-A live and editable version of the app can be accessed at:
-
-[URL]
+A live and editable version of the app can be accessed
+[here](https://stackblitz.com/github/esanzgar/pubmed-healx)
 
 ## Development server
 
@@ -19,16 +18,9 @@ yarn install [--frozen-lockfile]
 yarn start
 ```
 
-2. With npm:
-
-```
-npm ci
-npm start
-```
-
 ## Want to help?
 
 Want to file a bug, contribute some code, or improve documentation? Excellent!
 Read up on our guidelines for [contributing][contributing].
 
-[contributing]: [URL]/CONTRIBUTING.md
+[contributing]: https://github.com/esanzgar/pubmed-healx/blob/master/CONTRIBUTING.md

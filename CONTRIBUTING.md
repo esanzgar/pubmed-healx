@@ -1,21 +1,21 @@
-# Workout
+# PubMed App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
-# Contributing to []
+# Contributing to PubMed App
 
-Thanks for your willingness to contribute to the [].
+Thanks for your willingness to contribute to the PubMedApp.
 
 ## Setup
 
 If you have writing permission into project's repo, then clone it locally.
 
 ```
-git clone https://[URI]
+git clone https://github.com/esanzgar/pubmed-healx
 
 or
 
-git clone git@gitlab.ebi.ac.uk:[URI]
+git clone git@github.com:esanzgar/pubmed-healx.git
 ```
 
 Otherwise, fork the repo, and submit pull requests.
@@ -27,13 +27,6 @@ Then download the dependencies.
 ```
 yarn install [--frozen-lockfile]
 yarn start
-```
-
-or
-
-```
-npm install or npm ci
-npm start
 ```
 
 ## Development server
