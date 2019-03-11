@@ -1323,6 +1323,11 @@ babylon@^6.18.0:
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
   integrity sha512-q/UEjfGJ2Cm3oKV71DJz9d25TPnq5rhBVL2Q4fA5wcC3jcrdn7+SssEybFIxwAvvP+YCsCYNKughoF33GxgycQ==
 
+backbone-events-standalone@^0.2.2:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/backbone-events-standalone/-/backbone-events-standalone-0.2.7.tgz#32437d9d11c5cef041034a59c49473b86f0ce196"
+  integrity sha1-MkN9nRHFzvBBA0pZxJRzuG8M4ZY=
+
 backo2@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
@@ -1411,6 +1416,13 @@ binary-extensions@^1.0.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.13.0.tgz#9523e001306a32444b907423f1de2164222f6ab1"
   integrity sha512-EgmjVLMn22z7eGGv3kcnHwSnJXmFHjISTY9E/S5lIcTD3Oxw05QTcBLNkJFzcb3cNueUdF/IN4U+d78V0zO8Hw==
+
+biojs-events@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/biojs-events/-/biojs-events-0.0.4.tgz#ee4a3deb5e2ab3d7f0857686630129cb217ec7e8"
+  integrity sha1-7ko9614qs9fwhXaGYwEpyyF+x+g=
+  dependencies:
+    backbone-events-standalone "^0.2.2"
 
 bl@^1.0.0:
   version "1.2.2"
@@ -2956,6 +2968,16 @@ ent@^2.2.0, ent@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ent/-/ent-2.2.0.tgz#e964219325a21d05f44466a2f686ed6ce5f5dd1d"
   integrity sha1-6WQhkyWiHQX0RGai9obtbOX13R0=
+
+epmc@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/epmc/-/epmc-0.1.9.tgz#d0f3ff92e882bd9ec6e6de87bf4db01a5a86517e"
+  integrity sha512-hB700yCZH/qg5kBgXsrABjiWABDUV0ZxSMnRORb68kDeTnHBbAbnp4ZIuWTbYGqZvs2d/HCUExTpl9xPw4nfeQ==
+  dependencies:
+    biojs-events "0.0.4"
+    jquery "^2.1.1"
+    js-class "0.0.2"
+    js-extend "0.0.2"
 
 err-code@^1.0.0:
   version "1.1.2"
@@ -5015,10 +5037,25 @@ join-path@^1.1.1:
     url-join "0.0.1"
     valid-url "^1"
 
+jquery@^2.1.1:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
+  integrity sha1-LInWiJterFIqfuoywUUhVZxsvwI=
+
 js-base64@^2.1.8:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
   integrity sha512-M7kLczedRMYX4L8Mdh4MzyAMM9O5osx+4FcOQuTvr3A9F2D9S5JXheN0ewNbrvK2UatkTRhL5ejGmGSjNMiZuw==
+
+js-class@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/js-class/-/js-class-0.0.2.tgz#56c33db955fab52caef9079af73641ba4f981dbf"
+  integrity sha1-VsM9uVX6tSyu+Qea9zZBuk+YHb8=
+
+js-extend@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/js-extend/-/js-extend-0.0.2.tgz#1d61ac7ef41f3b0641ab009895df41028ae0120b"
+  integrity sha1-HWGsfvQfOwZBqwCYld9BAorgEgs=
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"

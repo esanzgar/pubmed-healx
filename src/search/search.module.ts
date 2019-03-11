@@ -6,6 +6,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { SearchRoutingModule } from "./search-routing.module";
 import { MaterialModule } from "../material/material.module";
 
+import { EpmcService } from "./services/epmc/epmc.service";
+import { NcbiService } from "./services/ncbi/ncbi.service";
+
 import { SearchComponent } from "./containers/search/search.component";
 
 @NgModule({
@@ -16,6 +19,7 @@ import { SearchComponent } from "./containers/search/search.component";
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule
-  ]
+  ],
+  providers: [EpmcService, NcbiService]
 })
 export class SearchModule {}
