@@ -18,6 +18,7 @@ import { ReadingListComponent } from "./containers/reading-list/reading-list.com
     CommonModule,
     ReaderRoutingModule,
     AngularFireModule.initializeApp(firebaseAppConfig),
+    AngularFireDatabaseModule,
     MaterialModule
   ],
   providers: [BookmarksService]

@@ -1,5 +1,5 @@
 <mat-card class="reading-card">
-  <mat-list *ngIf="bookmarks.length; else noBookmarks">
+  <mat-list *ngIf="(bookmarks$ | async) as bookmark; else noBookmarks">
     <h2 mat-subheader>Bookmarks</h2>
     <mat-list-item
       *ngFor="let bookmark of bookmarks; last as last; index as index"

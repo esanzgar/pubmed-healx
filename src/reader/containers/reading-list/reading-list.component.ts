@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable, Subscription } from "rxjs";
 
 import {
   BookmarksService,
@@ -11,16 +12,17 @@ import {
   styleUrls: ["./reading-list.component.css"]
 })
 export class ReadingListComponent implements OnInit {
-  bookmarks: Bookmark[] = [];
-  constructor(private _bookmarks: BookmarksService) {}
+  bookmarks$: Observable<Bookmark[]> = this._bookmarksService.bookmarks;
+
+  constructor(private _bookmarksService: BookmarksService) {}
 
   ngOnInit() {}
 
-  addBookmark(pmid: string) {
-    // TODO
+  async addBookmark(pmid: string) {
+    await this._bookmarksService.add(pmid);
   }
 
-  removeBookmark(pmid: string) {
-    // TODO
+  async removeBookmark(key: string) {
+    await this._bookmarksService.remove(key);
   }
 }

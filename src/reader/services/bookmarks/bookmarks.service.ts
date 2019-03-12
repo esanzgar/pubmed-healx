@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "@angular/fire/database";
 
 export interface Bookmark {
   pubmid: string;
@@ -9,13 +10,19 @@ export interface Bookmark {
   providedIn: "root"
 })
 export class BookmarksService {
-  constructor() {}
+  private _bookmarks$ = this._db.list<Bookmark>(`bookmarks`).valueChanges();
 
-  add(pubmed: string) {
-    // TODO
+  get bookmarks() {
+    return this._bookmarks$;
   }
 
-  remove($key: string) {
-    // TODO
+  constructor(private _db: AngularFireDatabase) {}
+
+  add(pubmed: string) {
+    return this._db.list(`bookmarks`).push(pubmed);
+  }
+
+  remove(key: string) {
+    return this._db.list(`bookmarks`).remove(key);
   }
 }
