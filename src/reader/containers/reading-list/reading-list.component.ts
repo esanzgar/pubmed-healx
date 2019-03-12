@@ -50,8 +50,6 @@ export class ReadingListComponent implements OnInit, OnDestroy {
   }
 
   async removeBookmark(key: string) {
-    console.log(key);
-    window.alert("Sorry, we are under construction");
-    // await this._bookmarksService.remove(key);
+    await this._bookmarksService.remove(key);
   }
 }

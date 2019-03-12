@@ -5,7 +5,7 @@
       *ngFor="let bookmark of bookmarks; last as last; index as index"
     >
       <fa-icon mat-list-icon [icon]="faFile" area-label="File icon"></fa-icon>
-      <h4 mat-line>PubMed: {{ bookmark }}</h4>
+      <h4 mat-line>PubMed: {{ bookmark.pmid }}</h4>
 
       <mat-action-list>
         <!--button (click)="view(bookmark.pmid)">
