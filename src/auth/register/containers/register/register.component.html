@@ -1,0 +1,14 @@
+<workout-auth-form (submitted)="createAccount($event)">
+  <mat-card-header>
+    <mat-icon mat-card-avatar aria-label="Create account icon">create</mat-icon>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-subtitle>Create account</mat-card-subtitle>
+  </mat-card-header>
+  <mat-error *ngIf="error">
+    {{ error }}
+  </mat-error>
+  <button mat-raised-button color="primary" type="submit">
+    Create account
+  </button>
+  <a routerLink="/auth/login">Already have an account?</a>
+</workout-auth-form>
