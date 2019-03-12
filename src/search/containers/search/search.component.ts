@@ -4,8 +4,6 @@ import { tap, take } from "rxjs/operators";
 
 import * as epmc from "epmc";
 
-import { faFile } from "@fortawesome/free-solid-svg-icons";
-
 import {
   EpmcService,
   EpmcResult,
@@ -23,7 +21,6 @@ export class SearchComponent {
     terms: [null, Validators.required]
   });
 
-  faFile = faFile;
   waiting = false;
   response: EpmcResponse | null = null;
   articles: EpmcResult[] = [];

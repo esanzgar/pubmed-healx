@@ -1,17 +1,27 @@
 <mat-card class="reading-card">
-  <mat-list *ngIf="(bookmarks$ | async) as bookmark; else noBookmarks">
+  <mat-list *ngIf="bookmarks?.length; else noBookmarks">
     <h2 mat-subheader>Bookmarks</h2>
     <mat-list-item
       *ngFor="let bookmark of bookmarks; last as last; index as index"
     >
-      <fa-icon mat-list-icon [icon]="faFile">file</fa-icon>
-      <h4 mat-line>{{ bookmark | json }}</h4>
+      <fa-icon mat-list-icon [icon]="faFile" area-label="File icon"></fa-icon>
+      <h4 mat-line>PubMed: {{ bookmark }}</h4>
+
+      <mat-action-list>
+        <!--button (click)="view(bookmark.pmid)">
+          <mat-icon>visibility</mat-icon>
+        </button-->
+        <button mat-icon-button (click)="removeBookmark(bookmark.$key)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-action-list>
+
       <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
     </mat-list-item>
   </mat-list>
 
   <ng-template #noBookmarks>
-    <!--fa-icon mat-list-icon [icon]="faFile">file</fa-icon-->
+    <mat-icon aria-label="Sad face icon">face</mat-icon>
     Sorry, there are no bookmarks.
     <ng-template> <mat-card></mat-card></ng-template></ng-template
 ></mat-card>
