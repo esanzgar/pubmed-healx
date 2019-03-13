@@ -37,7 +37,7 @@ export interface EpmcResponse {
 export class EpmcService {
   constructor(private _http: HttpClient) {}
 
-  search(query: string, cursor = "*") {
+  search(query: string, cursor = "") {
     const cleanQuery = query.replace(" ", "+");
     return this._http.get<EpmcResponse>(
       `${

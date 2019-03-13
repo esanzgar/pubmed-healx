@@ -17,10 +17,8 @@ import { faFile } from "@fortawesome/free-solid-svg-icons";
 })
 export class ReadingListComponent implements OnInit, OnDestroy {
   faFile = faFile;
-  bookmarks: Bookmark[] = [];
-  private _subcriptions: Subscription[] = [];
-  private _bookmarks$: Observable<Bookmark[]> = this._bookmarksService
-    .bookmarks;
+  bookmarks$: Observable<Bookmark[]> = this._bookmarksService.bookmarks;
+  private _subcription!: Subscription;
 
   constructor(
     private _bookmarksService: BookmarksService,
@@ -29,20 +27,18 @@ export class ReadingListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // If URL contains an id then save it
-    const sub1 = this._route.params
+    // If URL contains an id then save pmid
+    this._subcription = this._route.params
       .pipe(
         filter(param => Boolean(param.id)),
         tap(param => this.addBookmark(param.id)),
         tap(_ => this._router.navigate(["/reader"]))
       )
       .subscribe();
-    const sub2 = this._bookmarks$.subscribe(data => (this.bookmarks = data));
-    this._subcriptions = [sub1, sub2];
   }
 
   ngOnDestroy() {
-    this._subcriptions.forEach(sub => sub.unsubscribe());
+    this._subcription.unsubscribe();
   }
 
   async addBookmark(pmid: string) {

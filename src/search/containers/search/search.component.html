@@ -19,45 +19,35 @@
       </div>
     </mat-card-content>
 
-    <mat-progress-bar mode="indeterminate" *ngIf="waiting"></mat-progress-bar>
-
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Search</button>
     </mat-card-actions>
 
-    <ng-container *ngIf="waiting === false && response">
-      <span>TODO paginator</span>
-      <mat-card
-        class="search-card"
-        *ngFor="let article of articles; last as last; index as index"
-      >
-        <mat-card-content>
-          <div id="{{ 'record-' + index }}"></div>
-        </mat-card-content>
-        <mat-card-actions>
-          <a
-            mat-raised-button
-            color="primary"
-            [routerLink]="['/reader', article.pmid]"
-            >Bookmark</a
-          >
-        </mat-card-actions>
-      </mat-card>
+    <mat-progress-bar mode="indeterminate" *ngIf="waiting"></mat-progress-bar>
+
+    <ng-container *ngIf="response">
+      <ng-container *ngIf="articles.length; else zeroResults">
+        <span>TODO paginator</span>
+        <mat-card
+          class="search-card"
+          *ngFor="let article of articles; last as last; index as index"
+        >
+          <mat-card-content>
+            <div id="{{ 'record-' + index }}"></div>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="['/reader', article.pmid]">Bookmark</a>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+
+      <ng-template #zeroResults>
+        <mat-card class="search-card">
+          <mat-card-content>
+            Sorry, there are no results. Please, try again.
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
     </ng-container>
-
-    <!--
-    <mat-list *ngIf="waiting === false && response">
-      <h2 mat-subheader>Articles</h2>
-      <mat-list-item
-        *ngFor="let article of articles; last as last; index as index"
-      >
-        <div id="{{ 'record-' + index }}"></div>
-
-        <fa-icon mat-list-icon [icon]="faFile">file</fa-icon>
-        <h4 mat-line>{{ article | json }}</h4>
-        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-      </mat-list-item>
-    </mat-list>
-    -->
   </mat-card>
 </form>

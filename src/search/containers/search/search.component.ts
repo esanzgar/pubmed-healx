@@ -1,6 +1,6 @@
 import { Component, NgZone } from "@angular/core";
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
-import { tap, take } from "rxjs/operators";
+import { tap, take, concatMap } from "rxjs/operators";
 
 import * as epmc from "epmc";
 
@@ -46,6 +46,16 @@ export class SearchComponent {
 
     this._resetState();
     const termsControl = this.form.get("terms") as FormControl;
+
+    this._ncbi
+      .search(termsControl.value)
+      .pipe(
+        concatMap(searchResponse =>
+          this._ncbi.summary(searchResponse.esearchresult.idlist)
+        )
+      )
+      .subscribe();
+
     this._epmc
       .search(termsControl.value)
       .pipe(
