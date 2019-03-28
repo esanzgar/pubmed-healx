@@ -32,7 +32,7 @@ export class ReadingListComponent implements OnInit, OnDestroy {
       .pipe(
         filter(param => Boolean(param.id)),
         tap(param => this.addBookmark(param.id)),
-        tap(_ => this._router.navigate(['/reader']))
+        tap(_ => this._router.navigate(['/reader'], { replaceUrl: true }))
       )
       .subscribe();
   }

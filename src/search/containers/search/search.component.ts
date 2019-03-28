@@ -82,8 +82,6 @@ export class SearchComponent {
         tap(_ => (this.waiting = false))
       )
       .subscribe();
-
-    // TODO: try with NCBI service
   }
 
   private _resetState() {
