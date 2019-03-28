@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-card class="auth-form">
+    <ng-content select="mat-card-header"></ng-content>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="text"
+              placeholder="Email"
+              autocomplete="username"
+              required
+              formControlName="email"
+            />
+            <mat-error *ngIf="emailError">
+              A valid email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+              formControlName="password"
+            />
+            <mat-error *ngIf="passwordError">
+              A password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <ng-content select="mat-error"> </ng-content>
+    </mat-card-content>
+    <mat-card-actions>
+      <ng-content select="button"> </ng-content>
+    </mat-card-actions>
+    <mat-card-footer>
+      <ng-content select="a"> </ng-content>
+    </mat-card-footer>
+  </mat-card>
+</form>

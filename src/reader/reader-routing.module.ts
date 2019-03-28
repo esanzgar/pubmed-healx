@@ -1,11 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ReadingListComponent } from './containers/reading-list/reading-list.component';
+import { UserAuthenticatedGuard } from "../auth/shared/guards/user-authenticated.guard";
+
+import { ReadingListComponent } from "./containers/reading-list/reading-list.component";
 
 const routes: Routes = [
-  { path: '', component: ReadingListComponent },
-  { path: ':id', component: ReadingListComponent }
+  {
+    path: "",
+    canActivate: [UserAuthenticatedGuard],
+    component: ReadingListComponent
+  },
+  {
+    path: ":id",
+    canActivate: [UserAuthenticatedGuard],
+    component: ReadingListComponent
+  }
 ];
 
 @NgModule({
