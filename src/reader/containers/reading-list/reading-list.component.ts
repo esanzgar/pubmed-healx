@@ -1,26 +1,24 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Observable, Subscription } from "rxjs";
-import { tap, filter } from "rxjs/operators";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { tap, filter } from 'rxjs/operators';
 
 import {
   BookmarksService,
   Bookmark
-} from "../../services/bookmarks/bookmarks.service";
+} from '../../services/bookmarks/bookmarks.service';
 
-import { faFile } from "@fortawesome/free-solid-svg-icons";
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: "pubmed-reading-list",
-  templateUrl: "./reading-list.component.html",
-  styleUrls: ["./reading-list.component.css"]
+  selector: 'pubmed-reading-list',
+  templateUrl: './reading-list.component.html',
+  styleUrls: ['./reading-list.component.css']
 })
 export class ReadingListComponent implements OnInit, OnDestroy {
   faFile = faFile;
-  bookmarks: Bookmark[] = [];
-  private _subcriptions: Subscription[] = [];
-  private _bookmarks$: Observable<Bookmark[]> = this._bookmarksService
-    .bookmarks;
+  bookmarks$: Observable<Bookmark[]> = this._bookmarksService.bookmarks;
+  private _subcription!: Subscription;
 
   constructor(
     private _bookmarksService: BookmarksService,
@@ -29,20 +27,18 @@ export class ReadingListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // If URL contains an id then save it
-    const sub1 = this._route.params
+    // If URL contains an id then save pmid
+    this._subcription = this._route.params
       .pipe(
         filter(param => Boolean(param.id)),
         tap(param => this.addBookmark(param.id)),
-        tap(_ => this._router.navigate(["/reader"]))
+        tap(_ => this._router.navigate(['/reader'], { replaceUrl: true }))
       )
       .subscribe();
-    const sub2 = this._bookmarks$.subscribe(data => (this.bookmarks = data));
-    this._subcriptions = [sub1, sub2];
   }
 
   ngOnDestroy() {
-    this._subcriptions.forEach(sub => sub.unsubscribe());
+    this._subcription.unsubscribe();
   }
 
   async addBookmark(pmid: string) {
@@ -50,8 +46,6 @@ export class ReadingListComponent implements OnInit, OnDestroy {
   }
 
   async removeBookmark(key: string) {
-    console.log(key);
-    window.alert("Sorry, we are under construction");
-    // await this._bookmarksService.remove(key);
+    await this._bookmarksService.remove(key);
   }
 }

@@ -1,9 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: "pubmed-nav",
-  templateUrl: "./nav.component.html",
-  styleUrls: ["./nav.component.css"],
+  selector: 'pubmed-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavComponent implements OnInit {

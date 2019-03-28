@@ -68,5 +68,8 @@
       "pre-commit": "pretty-quick --staged",
       "preparecommitmsg": "git-hooks/prepare-commit-msg ${GIT_PARAMS}"
     }
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
