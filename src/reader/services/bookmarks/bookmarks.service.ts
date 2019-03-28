@@ -1,21 +1,40 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Bookmark {
-  pubmid: string;
-  $key: string;
+  pmid: string;
+  $key: string | null;
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class BookmarksService {
-  constructor() {}
+  private _bookmarks$: Observable<Bookmark[]> = this._db
+    .list<string>(`bookmarks`)
+    .snapshotChanges()
+    .pipe(
+      map(actions =>
+        actions.map(
+          item =>
+            ({ pmid: item.payload.val(), $key: item.payload.key } as Bookmark)
+        )
+      )
+    );
 
-  add(pubmed: string) {
-    // TODO
+  get bookmarks() {
+    return this._bookmarks$;
   }
 
-  remove($key: string) {
-    // TODO
+  constructor(private _db: AngularFireDatabase) {}
+
+  add(pubmed: string) {
+    return this._db.list(`bookmarks`).push(pubmed);
+  }
+
+  remove(key: string) {
+    return this._db.list(`bookmarks`).remove(key);
   }
 }

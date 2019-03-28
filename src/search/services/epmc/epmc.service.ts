@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { environment } from "../../../environments/environment";
+import { environment } from '../../../environments/environment';
 
 export interface EpmcRequest {
   query: string;
@@ -32,13 +32,13 @@ export interface EpmcResponse {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class EpmcService {
   constructor(private _http: HttpClient) {}
 
-  search(query: string, cursor = "*") {
-    const cleanQuery = query.replace(" ", "+");
+  search(query: string, cursor = '') {
+    const cleanQuery = query.replace(' ', '+');
     return this._http.get<EpmcResponse>(
       `${
         environment.epmcUrl

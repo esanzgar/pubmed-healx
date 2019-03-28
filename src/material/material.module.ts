@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import {
   MatToolbarModule,
@@ -12,9 +12,9 @@ import {
   MatRadioModule,
   MatCardModule,
   MatProgressBarModule
-} from "@angular/material";
-import { LayoutModule } from "@angular/cdk/layout";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+} from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [],
