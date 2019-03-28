@@ -1,11 +1,11 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { ReadingListComponent } from "./containers/reading-list/reading-list.component";
+import { ReadingListComponent } from './containers/reading-list/reading-list.component';
 
 const routes: Routes = [
-  { path: "", component: ReadingListComponent },
-  { path: ":id", component: ReadingListComponent }
+  { path: '', component: ReadingListComponent },
+  { path: ':id', component: ReadingListComponent }
 ];
 
 @NgModule({

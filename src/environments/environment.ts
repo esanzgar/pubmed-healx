@@ -2,20 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 //
-import { FirebaseAppConfig } from "@angular/fire";
+import { FirebaseAppConfig } from '@angular/fire';
 
 export const firebaseAppConfig: FirebaseAppConfig = {
-  apiKey: "AIzaSyDNBC67WKxs4miuKi-xz4QirICxKY1BR7w",
-  authDomain: "pubmed-6c453.firebaseapp.com",
-  databaseURL: "https://pubmed-6c453.firebaseio.com",
-  projectId: "pubmed-6c453",
-  storageBucket: "",
-  messagingSenderId: "40696183324"
+  apiKey: 'AIzaSyDNBC67WKxs4miuKi-xz4QirICxKY1BR7w',
+  authDomain: 'pubmed-6c453.firebaseapp.com',
+  databaseURL: 'https://pubmed-6c453.firebaseio.com',
+  projectId: 'pubmed-6c453',
+  storageBucket: '',
+  messagingSenderId: '40696183324'
 };
 
 export const environment = {
-  epmcUrl: "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
-  ncbiUrl: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils",
+  epmcUrl: 'https://www.ebi.ac.uk/europepmc/webservices/rest/search',
+  ncbiUrl: 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils',
   production: false
 };
 

@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { AngularFireDatabase } from "@angular/fire/database";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Bookmark {
   pmid: string;
@@ -9,7 +9,7 @@ export interface Bookmark {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class BookmarksService {
   private _bookmarks$: Observable<Bookmark[]> = this._db

@@ -1,20 +1,20 @@
-import { Component, NgZone } from "@angular/core";
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
-import { tap, take, concatMap } from "rxjs/operators";
+import { Component, NgZone } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { tap, take, concatMap } from 'rxjs/operators';
 
-import * as epmc from "epmc";
+import * as epmc from 'epmc';
 
 import {
   EpmcService,
   EpmcResult,
   EpmcResponse
-} from "../../services/epmc/epmc.service";
-import { NcbiService } from "../../services/ncbi/ncbi.service";
+} from '../../services/epmc/epmc.service';
+import { NcbiService } from '../../services/ncbi/ncbi.service';
 
 @Component({
-  selector: "pubmed-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.css"]
+  selector: 'pubmed-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
   form = this.fb.group({
@@ -26,9 +26,9 @@ export class SearchComponent {
   articles: EpmcResult[] = [];
 
   private readonly epmcConfiguration = {
-    source: "MED",
-    displayStyle: "FULL_STYLE",
-    elementOrder: "TITLE_FIRST",
+    source: 'MED',
+    displayStyle: 'FULL_STYLE',
+    elementOrder: 'TITLE_FIRST',
     showAbstract: true
   };
 
@@ -45,7 +45,7 @@ export class SearchComponent {
     }
 
     this._resetState();
-    const termsControl = this.form.get("terms") as FormControl;
+    const termsControl = this.form.get('terms') as FormControl;
 
     this._ncbi
       .search(termsControl.value)
@@ -71,7 +71,7 @@ export class SearchComponent {
                 new epmc.Citation({
                   target: `record-${index}`,
                   citation_id: citation.pmid,
-                  width: "100%",
+                  width: '100%',
                   ...this.epmcConfiguration
                 }).load();
                 return;

@@ -1,1 +1,1 @@
-declare module "epmc";
+declare module 'epmc';

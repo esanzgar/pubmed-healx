@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { environment } from "../../../environments/environment";
+import { environment } from '../../../environments/environment';
 
 export interface Header {
   type: string;
@@ -24,11 +24,11 @@ export interface NcbiSearchResponse {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class NcbiService {
-  private readonly _database = "pubmed";
-  private readonly _responseType = "json";
+  private readonly _database = 'pubmed';
+  private readonly _responseType = 'json';
   private readonly _searchUrl = `${environment.ncbiUrl}/esearch.fcgi?db=${
     this._database
   }&retmode=${this._responseType}`;
@@ -46,6 +46,6 @@ export class NcbiService {
 
   summary(ids: string[]) {
     // return this._http.get<NcbiSummaryResponse>(`${this._summaryUrl}&id=${ids.join(',')}`);
-    return this._http.get(`${this._summaryUrl}&id=${ids.join(",")}`);
+    return this._http.get(`${this._summaryUrl}&id=${ids.join(',')}`);
   }
 }

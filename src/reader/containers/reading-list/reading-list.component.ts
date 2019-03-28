@@ -1,19 +1,19 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Observable, Subscription } from "rxjs";
-import { tap, filter } from "rxjs/operators";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { tap, filter } from 'rxjs/operators';
 
 import {
   BookmarksService,
   Bookmark
-} from "../../services/bookmarks/bookmarks.service";
+} from '../../services/bookmarks/bookmarks.service';
 
-import { faFile } from "@fortawesome/free-solid-svg-icons";
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: "pubmed-reading-list",
-  templateUrl: "./reading-list.component.html",
-  styleUrls: ["./reading-list.component.css"]
+  selector: 'pubmed-reading-list',
+  templateUrl: './reading-list.component.html',
+  styleUrls: ['./reading-list.component.css']
 })
 export class ReadingListComponent implements OnInit, OnDestroy {
   faFile = faFile;
@@ -32,7 +32,7 @@ export class ReadingListComponent implements OnInit, OnDestroy {
       .pipe(
         filter(param => Boolean(param.id)),
         tap(param => this.addBookmark(param.id)),
-        tap(_ => this._router.navigate(["/reader"]))
+        tap(_ => this._router.navigate(['/reader']))
       )
       .subscribe();
   }
